@@ -1,0 +1,7 @@
+body {
+    background-color: #f5f7fb;
+}
+
+.container__inner {
+    max-width: 1024px;
+}
