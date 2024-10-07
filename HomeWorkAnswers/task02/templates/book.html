@@ -1,7 +1,11 @@
 <div class="card mb-3">
-    <div class="card-header">{{ title }}</div>
+    <div class="card-header card-title">{{ title }}</div>
     <div class="card-body">
-        <h5 class="card-title">Author: {{ author }}</h5>
+        <div class="d-flex justify-content-between">
+            <h5 class="card-title">Author: {{ author }}</h5>
+            <button class="btn btn-sm btn-info">Edit</button>
+        </div>
+
         <div class="card-text">
             <p class="card-text">{{ year }}</p>
             <p>{{ genre }}</p>
