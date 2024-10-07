@@ -22,6 +22,7 @@
                                 placeholder="Введіть назву книги"
                                 id="formTitle"
                                 name="formTitle"
+                                required
                             />
                         </div>
                         <div class="form-group mb-3" name="">
@@ -32,16 +33,19 @@
                                 placeholder="Введіть прізвище та ініціали автора"
                                 id="formAuthor"
                                 name="formAuthor"
+                                required
                             />
                         </div>
                         <div class="form-group mb-3" name="">
                             <label for="" class="form-label">Рік видання:</label>
                             <input
-                                type="text"
+                                type="number"
+                                min="1450"
                                 class="form-control"
                                 placeholder="Введіть рік видання книги"
                                 id="formYear"
                                 name="formYear"
+                                required
                             />
                         </div>
                         <div class="form-group mb-3" name="">
@@ -52,6 +56,7 @@
                                 placeholder="Введіть рік видання"
                                 id="formGenre"
                                 name="formGenre"
+                                required
                             />
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
