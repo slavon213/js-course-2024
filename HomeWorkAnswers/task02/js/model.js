@@ -51,4 +51,14 @@ export const library = {
             genre: "Навчальна література",
         },
     ],
+
+    lastId() {
+        let allIds = this.books.map((book) => book.id);
+        return Math.max(...allIds);
+    },
+
+    addBook(book) {
+        book.id = this.lastId() + 1;
+        this.books.push(book);
+    },
 }
