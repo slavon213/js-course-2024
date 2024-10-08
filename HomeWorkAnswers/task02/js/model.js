@@ -66,6 +66,10 @@ export const library = {
         let index = this.books.findIndex((book) => book.id == id);
         return this.books[index];
     },
+    findByTitle(title) {
+        let index = this.books.findIndex((book) => book.title === title);
+        return this.books[index]
+    },
     remove(id) {
         let index = this.books.findIndex((book) => book.id == id);
         this.books.splice(index, 1);
