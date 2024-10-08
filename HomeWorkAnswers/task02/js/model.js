@@ -70,4 +70,13 @@ export const library = {
         let index = this.books.findIndex((book) => book.id == id);
         this.books.splice(index, 1);
     },
+    
+    update(id, book){
+        let index = this.books.findIndex((book) => book.id == id);
+        if (index !== -1) {
+            book.id = id;
+            this.books[index] = book;
+        }
+        
+    },
 };

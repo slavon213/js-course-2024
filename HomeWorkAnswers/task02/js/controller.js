@@ -18,6 +18,7 @@ function render () {
     .then(template => {
         bookList.renderWithTemplate(library.books, html, template);
         addRemoveFunc();
+        addEditFunc();
         
 
     })
@@ -28,7 +29,9 @@ function addRemoveFunc () {
     document.querySelectorAll(".btn-danger").forEach(button => {
         button.addEventListener("click", function() {
             const id = button.getAttribute("data-id");
-            remove(id);
+            if(confirm("Видалити книгу?")){
+                remove(id);
+            }
         })
     });
 }
@@ -38,7 +41,7 @@ function addEditFunc() {
     document.querySelectorAll(".btn-warning").forEach((button) => {
         button.addEventListener("click", function () {
             const id = button.getAttribute("data-id");
-            remove(id);
+            edit(id);
         });
     });
 }
@@ -49,6 +52,19 @@ function remove(id) {
     render();
 };
 
+
+function edit(id) {
+    const book = library.find(id);
+    editId = id;
+    bookForm.formTitle.value = book.title;
+    bookForm.formAuthor.value = book.author;
+    bookForm.formYear.value = book.year;
+    bookForm.formGenre.value = book.genre;
+    render();
+    bookForm.formTitle.focus()
+
+}
+
 bookForm.addEventListener("submit", function(e) {
     e.preventDefault();
     let book = {
@@ -57,7 +73,13 @@ bookForm.addEventListener("submit", function(e) {
         year: bookForm.formYear.value,
         genre: bookForm.formGenre.value,
     };
-    library.addBook(book);
+    if(editId === null) {
+        library.addBook(book);
+    } else {
+        library.update(editId, book)
+        editId = null;
+    };
+    
     bookForm.reset()
     render();
 })
