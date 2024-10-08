@@ -16,10 +16,38 @@ function render () {
         return response.text()
     })
     .then(template => {
-        bookList.renderWithTemplate(library.books, html, template)
+        bookList.renderWithTemplate(library.books, html, template);
+        addRemoveFunc();
+        
 
     })
 }
+
+
+function addRemoveFunc () {
+    document.querySelectorAll(".btn-danger").forEach(button => {
+        button.addEventListener("click", function() {
+            const id = button.getAttribute("data-id");
+            remove(id);
+        })
+    });
+}
+
+
+function addEditFunc() {
+    document.querySelectorAll(".btn-warning").forEach((button) => {
+        button.addEventListener("click", function () {
+            const id = button.getAttribute("data-id");
+            remove(id);
+        });
+    });
+}
+
+
+function remove(id) {
+    library.remove(id);
+    render();
+};
 
 bookForm.addEventListener("submit", function(e) {
     e.preventDefault();
@@ -33,6 +61,8 @@ bookForm.addEventListener("submit", function(e) {
     bookForm.reset()
     render();
 })
+
+
 
 
 

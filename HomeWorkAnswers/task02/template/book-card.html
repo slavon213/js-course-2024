@@ -8,8 +8,8 @@
         <p class="card-text"><b>Рік видання:</b> {{ year }}</p>
         <p class="card-text"><b>Жанр: </b>{{ genre }}</p>
         <div class="d-flex justify-content-end">
-            <button class="btn btn-sm btn-warning mx-1" onclick="edit({{id}})">Edit</button>
-            <button class="btn btn-sm btn-danger mx-1" onclick="edit({{id}})">Delete</button>
+            <button class="btn btn-sm btn-warning mx-1" data-id="{{id}}">Edit</button>
+            <button class="btn btn-sm btn-danger mx-1" data-id="{{id}}">Delete</button>
         </div>
     </div>
 </div>

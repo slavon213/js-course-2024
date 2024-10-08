@@ -61,4 +61,13 @@ export const library = {
         book.id = this.lastId() + 1;
         this.books.push(book);
     },
-}
+
+    find(id) {
+        let index = this.books.findIndex((book) => book.id == id);
+        return this.books[index];
+    },
+    remove(id) {
+        let index = this.books.findIndex((book) => book.id == id);
+        this.books.splice(index, 1);
+    },
+};
