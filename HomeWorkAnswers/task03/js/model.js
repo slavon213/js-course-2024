@@ -83,11 +83,3 @@ export const library = {
     }, 
 };
 
-
-if (require.main === module) {
-    console.log(library.lastId());
-    console.log(library.findBook(7));
-    library.remove(7);
-    console.log(library.lastId());
-    console.log(library.findBookByTitle("Старий і море"));
-}
