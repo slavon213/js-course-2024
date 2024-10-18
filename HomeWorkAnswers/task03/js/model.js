@@ -1,4 +1,4 @@
-const library = {
+export const library = {
     books: [
         {
             id: 1,
@@ -63,7 +63,7 @@ const library = {
 
     findBook(id) {
         let index = this.books.findIndex((book) => book.id === id);
-        return this.books[index];
+        return index;
     },
 
     findBookByTitle(titleBook) {
@@ -78,7 +78,7 @@ const library = {
     },
 
     remove(id) {
-        let index = this.books.findIndex((book) => book.id === id);
+        let index = this.findBook(id);
         this.books.splice(index, 1);
     }, 
 };

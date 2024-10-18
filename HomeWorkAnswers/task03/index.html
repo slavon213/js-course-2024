@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Library</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<div class="container">
+    <div class="container text-center mt-3">
+        <h1>Бібліотека успішного програміста</h1>
+    </div class="container text-center">
+    <div class="card">
+        <div class="card-header text-center text-uppercase">додайте або відредагуйте книгу тут</div>
+        <div class="card-body">
+            <form action="" >
+                <div class="mb-3">
+                    <label for="title" class="form-label">Назва книги</label>
+                    <input type="text" class="form-control" id="title" name="title" required>
+                </div>
+                <div class="mb-3">
+                    <label for="author" class="form-label">Автор</label>
+                    <input type="text" id="author" name="author" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="year" class="form-label">Рік видання</label>
+                    <input type="number" id="year" name="year" class="form-control" min="1450" required>
+                </div>
+                <div class="mb-3">
+                    <label for="genre" class="form-label">Жанр</label>
+                    <input type="text" id="genre" name="genre" class="form-control" required>
+                </div>
+                <div class="mb-3"><button class="btn btn-primary">Submit</button></div>
+            </form>
+        </div>
+    </div>
+   
+
+
+</div>
+
+
+
+
+<script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
