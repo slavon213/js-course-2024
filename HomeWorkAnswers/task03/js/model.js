@@ -59,11 +59,12 @@ export const library = {
 
     add(book) {
         book.id = this.lastId() + 1;
+        this.books.push(book);
     },
 
     findBook(id) {
-        let index = this.books.findIndex((book) => book.id === id);
-        return index;
+        let index = this.books.findIndex((book) => book.id === +id);
+        return this.books[index];
     },
 
     findBookByTitle(titleBook) {
@@ -77,9 +78,8 @@ export const library = {
         this.books[index] = bookToUpdate;
     },
 
-    remove(id) {
-        let index = this.findBook(id);
+    remove(id) {        
+        let index = this.books.findIndex((book) => book.id === id);
         this.books.splice(index, 1);
     }, 
 };
-
