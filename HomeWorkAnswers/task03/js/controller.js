@@ -3,6 +3,29 @@ import { library } from "./model.js";
 let editId = "";
 let bookForm = document.getElementById("bookForm");
 
+bookForm.title.addEventListener("input", function (e) {
+    e.preventDefault();
+    let title = bookForm.title;
+    let book = library.findBookByTitle(title.value);
+    if (book) {
+        title.setCustomValidity("Книжка з такою газвою існує");
+    } else {
+        title.setCustomValidity("");
+    }
+});
+
+bookForm.year.addEventListener("input", function(e) {
+    e.preventDefault();
+    let currentYear = new Date().getFullYear();
+    let minYear = 1400;
+    let year = bookForm.year;
+    if (year.value < minYear || year.value > currentYear) {
+        year.setCustomValidity(`Рік повинен бути в проміжку між ${minYear} та ${currentYear}`)
+    } else {
+        year.setCustomValidity("");
+    }
+})
+
 function editButtonClick(event) {
     const cardBody = event.target.closest(".card-body");
     const id = cardBody.getAttribute("data-id");
@@ -10,13 +33,11 @@ function editButtonClick(event) {
     bookForm.title.focus();
 }
 
-
 function deleteButtonClick(event) {
     const cardBody = event.target.closest(".card-body");
     const id = cardBody.getAttribute("data-id");
     remove(id);
 }
-
 
 function edit(id) {
     let editBook = library.findBook(id);
