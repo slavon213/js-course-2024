@@ -79,7 +79,7 @@ export const library = {
     },
 
     remove(id) {        
-        let index = this.books.findIndex((book) => book.id === id);
+        let index = this.books.findIndex((book) => book.id === +id);
         this.books.splice(index, 1);
     }, 
 };
